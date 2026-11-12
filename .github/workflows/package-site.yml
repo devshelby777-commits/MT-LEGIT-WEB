@@ -1,0 +1,19 @@
+name: Package MT LEGIT WEB
+on:
+  push:
+    branches:
+      - feature/overview-visual-refresh
+    paths:
+      - '.github/workflows/package-site.yml'
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create ZIP
+        run: zip -r MT-LEGIT-WEB.zip . -x ".git/*"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MT-LEGIT-WEB
+          path: MT-LEGIT-WEB.zip
+          retention-days: 7
