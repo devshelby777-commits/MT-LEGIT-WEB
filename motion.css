@@ -1,41 +1,31 @@
-/* MT LEGIT WEB — animation-only layer; no layout or behavior changes */
+/* MT LEGIT WEB — animações funcionais para o painel */
 @media (prefers-reduced-motion: no-preference) {
-  #page-content > * {
-    animation: mt-page-enter 420ms cubic-bezier(.2,.7,.2,1) both;
+  #page-content > * { animation: mt-page-enter .55s cubic-bezier(.2,.7,.2,1) both; }
+  #page-content > *:nth-child(2) { animation-delay: 70ms; }
+  #page-content > *:nth-child(3) { animation-delay: 140ms; }
+  #page-content > *:nth-child(4) { animation-delay: 210ms; }
+  .studio-hero { animation: mt-hero-enter .8s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-copy { animation: mt-copy-enter .75s .12s ease-out both; }
+  .tech-stage { animation: mt-stage-enter .9s .2s ease-out both; }
+  .fresh-stat { animation: mt-card-enter .55s ease-out both; }
+  .fresh-stat:nth-child(2) { animation-delay: 80ms; }
+  .fresh-stat:nth-child(3) { animation-delay: 160ms; }
+  .fresh-stat:nth-child(4) { animation-delay: 240ms; }
+  #page-content .panel, #page-content .stat-card, #page-content .data-card, #page-content .table-wrap {
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
   }
-  #page-content > *:nth-child(2) { animation-delay: 45ms; }
-  #page-content > *:nth-child(3) { animation-delay: 90ms; }
-  #page-content > *:nth-child(4) { animation-delay: 135ms; }
-  #page-content .panel,
-  #page-content .stat-card,
-  #page-content .data-card,
-  #page-content .table-wrap {
-    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  #page-content .panel:hover, #page-content .stat-card:hover, #page-content .data-card:hover {
+    transform: translateY(-3px); border-color: #55505a; box-shadow: 0 12px 30px #0004;
   }
-  #page-content .panel:hover,
-  #page-content .stat-card:hover,
-  #page-content .data-card:hover {
-    transform: translateY(-2px);
-    border-color: #45404a;
-  }
-  .sidebar .nav-item,
-  .workspace-switch,
-  button,
-  a {
-    transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
-  }
-  .sidebar .nav-item:hover { transform: translateX(2px); }
+  .sidebar .nav-item, button, a { transition: color .16s ease, background-color .16s ease, border-color .16s ease, transform .16s ease; }
+  .sidebar .nav-item:hover { transform: translateX(3px); }
+  .primary-button:hover { transform: translateY(-2px); }
 }
-@keyframes mt-page-enter {
-  from { opacity: 0; transform: translateY(7px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes mt-page-enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes mt-hero-enter { from { opacity: 0; transform: translateY(14px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes mt-copy-enter { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes mt-stage-enter { from { opacity: 0; transform: translateX(16px) scale(.97); } to { opacity: 1; transform: translateX(0) scale(1); } }
+@keyframes mt-card-enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @media (prefers-reduced-motion: reduce) {
-  #page-content > * { animation: none !important; }
-  #page-content .panel,
-  #page-content .stat-card,
-  #page-content .data-card,
-  .sidebar .nav-item,
-  button,
-  a { transition: none !important; }
+  #page-content *, .studio-hero, .hero-copy, .tech-stage, .fresh-stat { animation: none !important; transition: none !important; }
 }
