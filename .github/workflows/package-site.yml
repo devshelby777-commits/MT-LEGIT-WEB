@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Create ZIP
-        run: zip -r MT-LEGIT-WEB.zip . -x ".git/*"
+        run: zip -r /tmp/MT-LEGIT-WEB.zip . -x ".git/*" && mv /tmp/MT-LEGIT-WEB.zip ./MT-LEGIT-WEB.zip
       - uses: actions/upload-artifact@v4
         with:
           name: MT-LEGIT-WEB
