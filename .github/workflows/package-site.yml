@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Create ZIP
-        run: zip -r /tmp/MT-LEGIT-WEB.zip . -x ".git/*" && mv /tmp/MT-LEGIT-WEB.zip ./MT-LEGIT-WEB.zip
+        run: zip -r /tmp/MT-LEGIT-WEB.zip . -x ".git/*" "MT-LEGIT-WEB.zip"
       - uses: actions/upload-artifact@v4
         with:
           name: MT-LEGIT-WEB
-          path: MT-LEGIT-WEB.zip
+          path: /tmp/MT-LEGIT-WEB.zip
           retention-days: 7
